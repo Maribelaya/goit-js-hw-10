@@ -9,7 +9,7 @@ import "izitoast/dist/css/iziToast.min.css";
 
 //Змінні
 let userSelectedDate; //Вказані користувачем дата та час 
-let startButton = document.querіSelector('[data-start]'); //Кнопка Старту
+let startButton = document.querySelector('[data-start]'); //Кнопка Старту
 let timerIntervalId; //Ідентифікатор інтервалу таймера
 
 const dateTimePickrElem = document.querySelector('#datetime-picker'); //Елемент поле вводу - Календар 
