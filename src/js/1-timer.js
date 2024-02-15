@@ -14,25 +14,25 @@ let timerIntervalId; //Ідентифікатор інтервалу тайме�
 
 const dateTimePickrElem = document.querySelector('#datetime-picker'); //Елемент поле вводу - Календар 
 
-const daysElement= document.querySelector('[data-days]'); //Елемент відображення днів
-const hoursElement = document.querySelector('[data-hours]'); //Елемент відображення годин
-const minutesElement = document.querySelector('[data-minutes]'); //Елемент відображення хвилин
-const secondsElement = document.querySelector('[data-seconds]'); //Елемент відображення секунд
+const daysElement= document.querySelector('[data-days]');
+const hoursElement = document.querySelector('[data-hours]'); 
+const minutesElement = document.querySelector('[data-minutes]');
+const secondsElement = document.querySelector('[data-seconds]'); 
 
-//Неактивна кнопка Старт на момент відкриття сторінки
-startButton.disabled = true; 
 
-//Опції відкриття календаря
-const options = {
+startButton.disabled = true;   //Неактивна кнопка Старт на момент відкриття сторінки
+
+
+const options = {           //Опції відкриття календаря
     enableTime: true,
     time_24hr: true,
     defaultDate: new Date(),
     minuteIncrement: 1,
-    onClose(selectedDates) { //Подія закриття календаря
-      if (selectedDates[0] > Date.now()) //Перевірка - обрана дата у майбутньому
+    onClose(selectedDates) {               //Подія закриття календаря
+      if (selectedDates[0] > Date.now())    //Перевірка - обрана дата у майбутньому
       {
         userSelectedDate = selectedDates[0]; //Запис обраної дати у змінну
-        startButton.disabled = false; //Активна кнопка Старт
+        startButton.disabled = false;          //Активна кнопка Старт
       } 
       else 
       {
@@ -66,7 +66,7 @@ const options = {
 
     //Зупинка виклику відображення таймеру щосекунди
     if(timeBalance <= 0 ){
-      if(timerInterval){
+      if(timerIntervalId){
         clearInterval(timerIntervalId);
       }
     }
