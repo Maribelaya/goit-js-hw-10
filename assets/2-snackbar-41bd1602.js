@@ -1,2 +1,2 @@
 import{i as s}from"./vendor-77e16229.js";const o=document.querySelector("form");o.addEventListener("submit",i=>{i.preventDefault();const t=parseInt(document.querySelector('input[name="delay"]').value);o.delay.value=void 0,new Promise((e,n)=>{setTimeout(()=>{o.state.value=="fulfilled"?e(t):n(t)},t)}).then(e=>{s.success({icon:null,message:`✅ Fulfilled promise in ${e}ms`,position:"topRight"})}).catch(e=>{s.error({icon:null,message:`❌ Rejected promise in ${e}ms`,position:"topRight"})})});
-//# sourceMappingURL=2-snackbar-d853068a.js.map
+//# sourceMappingURL=2-snackbar-41bd1602.js.map
