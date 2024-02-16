@@ -37,7 +37,10 @@ const options = {           //Опції відкриття календаря
       else 
       {
         userSelectedDate = undefined; //Змачення змінної не визначено
-        startButton.disabled = true; ///Неактивна кнопка Старт
+        startButton.disabled = true; //Неактивна кнопка Старт
+        if(timerIntervalId){
+          clearInterval(timerIntervalId);
+        }
         //Повідомлення
         iziToast.error({
           message: 'Please choose a date in the future',
@@ -65,9 +68,11 @@ const options = {           //Опції відкриття календаря
     }
 
     //Зупинка виклику відображення таймеру щосекунди
-    if(timeBalance <= 0 ){
+    if(timeBalance < 0 ){
       if(timerIntervalId){
         clearInterval(timerIntervalId);
+        startButton.disabled = false; //Активна кнопка Старт
+        dateTimePickrElem.disabled = false; //Активний елемент вводу
       }
     }
 };
@@ -80,6 +85,8 @@ function formatTimerValue(value) {
 //Подія - натискання кнопки Старт
   startButton.addEventListener('click', () => {
     if (userSelectedDate) {
+      startButton.disabled = true; //Неактивна кнопка Старт
+      dateTimePickrElem.disabled = true; //Неактивний елемент вводу
       timerIntervalId = setInterval(showTimer, 1000); //Встановлення інтревалу виклику щосекунди
     }
   });
