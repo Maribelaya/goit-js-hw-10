@@ -68,7 +68,7 @@ const options = {           //Опції відкриття календаря
     }
 
     //Зупинка виклику відображення таймеру щосекунди
-    if(timeBalance < 0 ){
+    if(timeBalance < 1000 ){
       if(timerIntervalId){
         clearInterval(timerIntervalId);
         startButton.disabled = false; //Активна кнопка Старт
